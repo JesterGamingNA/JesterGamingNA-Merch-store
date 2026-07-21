@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JesterGaming Merch Store</title>
+  <link rel="stylesheet" href="website.css">
+
+</head>
+<body>
+
+
+<div class="accessibility-bar">
+  <button onclick="toggleZoom()" aria-label="Zoom Text">🔍 Zoom Text</button>
+
+  <button onclick="toggleHighContrast()" aria-label="Toggle High Contrast">🌓 High Contrast</button>
+</div>
+
+<header>
+  <div class="logo"> JesterGaming Store</div>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+
+
+    </ul>
+  </nav>
+</header>
+
+
+<section id="home" class="hero">
+  <div class="hero-text">
+    <h1>Level Up Your Style</h1>
+    <p>Official gear for the ultimate JesterGaming fans.</p>
+
+  </div>
+</section>
+
+
+  </div>
+</section>
+
+
+
+</section>
+
+
+
+</section>
+
+
+
+
+<script>
+  function toggleZoom() {
+    let body = document.body;
+    if (body.classList.contains('zoomed')) {
+      body.classList.remove('zoomed');
+    } else {
+      body.classList.add('zoomed');
+    }
+  }
+
+
+
+  function toggleHighContrast() {
+    let body = document.body;
+    if (body.classList.contains('high-contrast')) {
+      body.classList.remove('high-contrast');
+    } else {
+      body.classList.add('high-contrast');
+    }
+  }
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Reviews Dashboard</title>
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f4f7f6;
+      color: #333;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+
+    .review-form-container {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      margin-bottom: 40px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 6px;
+      color: #555;
+    }
+
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 16px;
+      outline: none;
+      transition: border 0.3s;
+    }
+
+    .form-group input:focus, .form-group textarea:focus {
+      border-color: #3498db;
+    }
+
+    .star-rating-input {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      gap: 5px;
+    }
+
+    .star-rating-input input {
+      display: none;
+    }
+
+    .star-rating-input label {
+      font-size: 30px;
+      color: #ddd;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .star-rating-input input:checked ~ label,
+    .star-rating-input label:hover,
+    .star-rating-input label:hover ~ label {
+      color: #f1c40f;
+    }
+
+    .submit-btn {
+      background-color: #2ecc71;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .submit-btn:hover {
+      background-color: #27ae60;
+    }
+
+
+    .reviews-feed {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .review-card {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .reviewer-name {
+      font-weight: bold;
+      font-size: 18px;
+      color: #2c3e50;
+    }
+
+    .review-stars {
+      color: #f1c40f;
+      font-size: 18px;
+    }
+
+    .review-text {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+
+  <div class="review-form-container">
+    <h2>Write a Review</h2>
+    <form id="reviewForm">
+      <div class="form-group">
+        <label for="reviewerName">Your Name</label>
+        <input type="text" id="reviewerName" placeholder="John Doe" required>
+      </div>
+
+      <div class="form-group">
+        <label>Your Rating</label>
+        <div class="star-rating-input">
+          <input type="radio" id="star5" name="rating" value="5" required><label for="star5">★</label>
+          <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+          <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+          <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+          <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="reviewContent">Review Comments</label>
+        <textarea id="reviewContent" rows="4" placeholder="Share your experience with this product..." required></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit Review</button>
+    </form>
+  </div>
+
+  <!-- Live Customer Feedback Stream -->
+  <div>
+    <h2>Customer Reviews</h2>
+    <div id="reviewsFeed" class="reviews-feed">
+      <!-- Simulated Initial Database Records -->
+      <div class="review-card">
+        <div class="review-header">
+          <span class="reviewer-name">Sarah Jenkins</span>
+          <span class="review-stars">★★★★★</span>
+        </div>
+        <p class="review-text">Absolutely incredible experience! Exceeded all my expectations. The user experience is seamless.</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <span class="reviewer-name">Alex Rivera</span>
+          <span class="review-stars">★★★★☆</span>
+        </div>
+        <p class="review-text">Great quality UI and very clean presentation. Minor delays in initial processing setup, but highly recommended.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+
+  document.getElementById('reviewForm').addEventListener('submit', function(e) {
+
+    e.preventDefault();
+
+    const name = document.getElementById('reviewerName').value;
+    const comment = document.getElementById('reviewContent').value;
+    const ratingValue = document.querySelector('input[name="rating"]:checked').value;
+
+    let starDisplay = '';
+    for (let i = 1; i <= 5; i++) {
+      starDisplay += (i <= ratingValue) ? '★' : '☆';
+    }
+
+    const newReviewCard = document.createElement('div');
+    newReviewCard.classList.add('review-card');
+
+    newReviewCard.innerHTML = `
+            <div class="review-header">
+                <span class="reviewer-name">${escapeHTML(name)}</span>
+                <span class="review-stars">${starDisplay}</span>
+            </div>
+            <p class="review-text">${escapeHTML(comment)}</p>
+        `;
+
+
+    const feed = document.getElementById('reviewsFeed');
+    feed.insertBefore(newReviewCard, feed.firstChild);
+
+    document.getElementById('reviewForm').reset();
+  });
+
+
+  function escapeHTML(str) {
+    return str.replace(/[&<>'"]/g,
+            tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+    );
+  }
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+
+
+  <style>
+    body { font-family: sans-serif; margin-right: 40px; background-color: grey; }
+    .container { display: flex; gap: 20px; flex-wrap: wrap; }
+    .products, .cart { background: grey; padding: 20px; border-radius: 8px; flex: 1; min-width: 300px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .product-card { border: 1px solid grey; padding: 15px; margin-bottom: 10px; border-radius: 5px; display: flex; justify-content: space-between; align-items: center; }
+    button { background-color: #007bff; color:red; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; }
+    button:hover { background-color: #0056b3; }
+    .remove-btn { background-color: ; }
+    .remove-btn:hover { background-color: white; }
+    .cart-items { list-style-type: none; padding: 0; }
+    .cart-item { border-bottom: 1px solid red; padding: 10px 0; display: flex; justify-content: space-between; align-items: center; }
+    .total-section { font-weight: bold; font-size: 1.2em; margin-top: 20px; }
+  </style>
+</head>
+<body>
+
+<style>
+  .cart-title {
+    text-align: center;
+  }
+</style>
+
+<h1 class="cart-title">Shopping Cart</h1>
+
+
+<div class="container">
+
+  <div class="products">
+    <h2>Products</h2>
+    <div class="product-card">
+      <div>
+
+        <img src="photos/hat.png" height="2048" width="1536">
+          <strong>snapback cap</strong><br>
+        <span>$25.00</span>
+      </div>
+      <button onclick="addToCart('snapback cap', 25.00)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <div>
+
+        <img src="photos/hoodie.png" height="2048" width="1536">
+        <strong>hoodie</strong><br>
+        <span>$49.99</span>
+      </div>
+      <button onclick="addToCart('hoodie', 49.99)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <div>
+
+        <img src="photos/teeshirt.png" height="2048" width="1536">
+        <strong>tee shirt</strong><br>
+        <span>$12.50</span>
+      </div>
+      <button onclick="addToCart('tee shirt', 12.50)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="cart">
+    <h2>Your Cart (<span id="item-count">0</span>)</h2>
+    <ul class="cart-items" id="cart-list">
+      <li id="empty-msg" style="color:red;">Your cart is empty</li>
+    </ul>
+    <div class="total-section">
+      Total: $<span id="cart-total">0.00</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  let cart = [];
+
+  function addToCart(name, price) {
+
+    const existingItem = cart.find(item => item.name === name);
+
+    if (existingItem) {
+      existingItem.quantity++;
+    } else {
+      cart.push({ name, price, quantity: 1 });
+    }
+
+    updateCartUI();
+  }
+
+  function removeFromCart(name) {
+    const index = cart.findIndex(item => item.name === name);
+
+    if (index > -1) {
+      cart.splice(index, 1); // Removes the item completely
+    }
+
+    updateCartUI();
+  }
+
+  function updateCartUI() {
+    const cartList = document.getElementById('cart-list');
+    const itemCount = document.getElementById('item-count');
+    const cartTotal = document.getElementById('cart-total');
+    const emptyMsg = document.getElementById('empty-msg');
+
+    cartList.innerHTML = '';
+
+    let total = 0;
+    let totalItems = 0;
+
+    if (cart.length === 0) {
+      cartList.appendChild(emptyMsg);
+    } else {
+      cart.forEach(item => {
+        total += item.price * item.quantity;
+        totalItems += item.quantity;
+
+        const li = document.createElement('li');
+        li.className = 'cart-item';
+        li.innerHTML = `
+                        <div>
+                            <strong>${item.name}</strong> <br>
+                            <small>$${item.price.toFixed(2)} x ${item.quantity}</small>
+                        </div>
+                        <div>
+                            <strong>$${(item.price * item.quantity).toFixed(2)}</strong>
+                            <button class="remove-btn" onclick="removeFromCart('${item.name}')">X</button>
+                        </div>
+                    `;
+        cartList.appendChild(li);
+      });
+    }
+
+
+    itemCount.textContent = totalItems;
+    cartTotal.textContent = total.toFixed(2);
+
+
+  }
+</script>
+</body>
+</html>
+
+
+<footer>
+  <p>&copy; 2026 JesterGaming Merch. All rights reserved.</p>
+</footer>

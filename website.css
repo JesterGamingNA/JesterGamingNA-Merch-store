@@ -1,0 +1,245 @@
+/* Base Variables & Reset */
+:root {
+    --primary: #6c5ce7;
+    --secondary: #a8ff78;
+    --dark: #2d3436;
+    --light: #f1f2f6;
+    --text-color: #333;
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-cool: 'Impact', 'Arial Black', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-color);
+    background-color: var(--light);
+}
+
+/* Accessibility Settings (Active Classes) */
+body.zoomed {
+    font-size: 125%;
+}
+
+
+
+body.high-contrast {
+    background-color: #000;
+    color: #fff;
+}
+body.high-contrast header { background-color: #111; }
+body.high-contrast .product-card, body.high-contrast .review-card { background-color: #222; border: 2px solid #fff; color: #fff; }
+body.high-contrast .price { color: var(--secondary); }
+
+
+.accessibility-bar {
+    background-color: #333;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.accessibility-bar button {
+    background: none;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.9em;
+    border-radius: 4px;
+}
+
+.accessibility-bar button:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+header {
+    background: var(--dark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-family: var(--font-cool);
+    color: var(--secondary);
+    font-size: 2em;
+    letter-spacing: 2px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--secondary);
+}
+
+
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://unsplash.com') no-repeat center center/cover;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+.hero h1 {
+    font-family: var(--font-cool);
+    font-size: 3.5em;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.cta-btn {
+    background: var(--secondary);
+    color: #000;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 1.1em;
+}
+
+
+section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-family: var(--font-cool);
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--primary);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.product-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.buy-btn {
+    display: inline-block;
+    background: var(--primary);
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.buy-btn:hover {
+    background: var(--secondary);
+    color: #000;
+}
+
+
+.review-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.review-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.stars {
+    color: #f1c40f;
+    margin-bottom: 10px;
+}
+
+.review-card p {
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+
+
+
+
+}/* Default style for mobile devices */
+.review-text {
+    font-size: 16px;
+}
+
+/* Larger screens (tablets and up) */
+@media (min-width: 768px) {
+    .review-text {
+        font-size: 20px;
+    }
+}
+
+/* Extra wide desktop screens */
+@media (min-width: 1024px) {
+    .review-text {
+        font-size: 24px;
+    }
+}
+
+
+
+
+
